@@ -2,19 +2,25 @@ import React from 'react'
 import './Prod.css';
 //import PropTypes from 'prop-types';
 
-
-export default function ProductTable(props) {
+const ProductTable =(props)=>{
     return (
-            props.product.map((prod)=><h1 key={prod.id}>{prod.category}{prod.price}{prod.name}</h1>),  
-            props.product.map((item)=>{
+          <table>
+            <tr>
+            <th>category</th> 
+            <th>price</th> 
+            <th>name</th> 
+            </tr>
+            {props.product.map((item)=>{
                 return( 
-                  <tr  className="tab" key={item.id}>
-                    <th>category:{item.category}</th>
-                    <th>price:{item.price}</th>
-                    <th>Name:{item.name}</th>
+                  <tr className="tab" key={item.id}>
+                    <td>{item.category}</td>
+                    <td>{item.price}</td>
+                    <td>{item.name}</td>
                   </tr> 
                    )
-            }      
-    )
+            })  
+             }
+             </table>)
 }
 //ProductTable.propTypes = {product: PropTypes.any.isRequired}
+export default ProductTable
